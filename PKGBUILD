@@ -38,6 +38,7 @@ license=(
 depends=(
   "${_py}>=${_pymajver}"
   "${_py}<${_pynextver}"
+  "words"
 )
 _os="$( \
   uname \
