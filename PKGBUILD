@@ -19,7 +19,7 @@ _pynextver="${_pymajver%.*}.$(( \
 _pkg=pre-kirshor
 pkgname="${_pkg}"
 pkgver=0.0.0.0.0.0.0.0.0.0.0.1
-_aioetherscan_ver="0.9.5.3"
+_words_ver="2.1"
 _commit="e8654948a72b6d1db66a887ad9c9f7c1bb2ab9b3"
 pkgrel=1
 _pkgdesc=(
@@ -38,7 +38,7 @@ license=(
 depends=(
   "${_py}>=${_pymajver}"
   "${_py}<${_pynextver}"
-  "words"
+  "words=${_words_ver}"
 )
 _os="$( \
   uname \
