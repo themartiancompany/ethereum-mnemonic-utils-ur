@@ -3,8 +3,8 @@
 # Maintainer: Truocolo <truocolo@aol.com>
 # Maintainer: Pellegrino Prevete (tallero) <pellegrinoprevete@gmail.com>
 
-_offline="true"
-_git="true"
+_offline="false"
+_git="false"
 _py="python"
 _py="python"
 _pyver="$( \
@@ -16,29 +16,37 @@ _pymajver="${_pyver%.*}"
 _pyminver="${_pymajver#*.}"
 _pynextver="${_pymajver%.*}.$(( \
   ${_pyminver} + 1))"
-_pkg=pre-kirshor
+_pkg=ethereum-mnemonic-utils
 pkgname="${_pkg}"
-pkgver=0.0.0.0.0.0.0.0.0.0.0.1
-_words_ver="2.1"
-_commit="e8654948a72b6d1db66a887ad9c9f7c1bb2ab9b3"
+pkgver=0.0.0.0.0.0.0.0.0.0.0.1.1.1.1.1
+_commit="a176f1331a69c370dae6a21365bdb0aa66f4ac03"
 pkgrel=1
 _pkgdesc=(
-  "Pre-process text before further compression."
+  "Convert Ethereum mnemonic keys into regular private keys."
 )
 pkgdesc="${_pkgdesc[*]}"
 arch=(
-  any
+  'x86_64'
+  'arm'
+  'aarch64'
+  'armv7l'
+  'armv6l'
+  'i686'
+  'mips'
+  'powerpc'
+  'pentium4'
 )
 _http="https://github.com"
 _ns="themartiancompany"
 url="${_http}/${_ns}/${pkgname}"
 license=(
-  AGPL3
+  'AGPL3'
 )
 depends=(
   "${_py}>=${_pymajver}"
   "${_py}<${_pynextver}"
-  "words=${_words_ver}"
+  "${_py}-base58"
+  "${_py}-ecdsa"
 )
 _os="$( \
   uname \
@@ -62,6 +70,9 @@ checkdepends=(
 provides=(
   "${_py}-${_pkg}=${pkgver}"
 )
+conflicts=(
+  "${_py}-${_pkg}"
+)
 _url="${url}"
 _tag="${_commit}"
 _tag_name="commit"
@@ -80,7 +91,7 @@ elif [[ "${_git}" == false ]]; then
     _sum="d4f4179c6e4ce1702c5fe6af132669e8ec4d0378428f69518f2926b969663a91"
   elif [[ "${_tag_name}" == "commit" ]]; then
     _src="${_tarname}.zip::${_url}/archive/${_commit}.zip"
-    _sum='31ac0b8014076f8c7cafa1c92c311359dc7f6f931e17c0a718c406cae77272f7'
+    _sum='2884604eaad35725523518f81ac1796d8f572f78e63c842f938c22457466f91e'
   fi
 fi
 source=(

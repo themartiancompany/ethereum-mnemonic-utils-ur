@@ -1,4 +1,4 @@
-# `pre-kirshor`
+# `ethereum-mnemonic-utils`
 
 universal recipe for [user repo](../themartiancompany/ur).
 
